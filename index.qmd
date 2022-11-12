@@ -1,8 +1,0 @@
----
-title: "Anik Burman"
----
-
-Hello everyone! my name is Anik Burman. I am a first year PhD student at the department of Biostatistics, Johns Hopkins Bloomberg School of Public Health.
-
-![](AE6E6A00-F66C-407E-B38E-FEB160D28A66-1.jpg)
-
