@@ -7,6 +7,27 @@
     "text": "Hello everyone! my name is Anik Burman. I am a first year PhD student at the department of Biostatistics, Johns Hopkins Bloomberg School of Public Health."
   },
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I have not yet decided upon any specific research topic and exploring various new fields. Currently I am learning about Spatial Statistics with Prof. Abhi Datta, Department of Biostatistics, Bloomberg School of Public Health."
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About",
+    "section": "Education",
+    "text": "Education\n\nJohns Hopkins Bloomberg School of Public Health\nDegree: PhD in Biostatistics\nExpected Year of graduation: 2027"
+  },
+  {
+    "objectID": "about.html#indian-statistical-institute-kolkata",
+    "href": "about.html#indian-statistical-institute-kolkata",
+    "title": "About",
+    "section": "Indian Statistical Institute, Kolkata",
+    "text": "Indian Statistical Institute, Kolkata\nDegree: Master of Statistics (M.STAT)\nYear of Graduation: 2022\nDegree: Bachelor of Statistics (B.STAT Hons.)\nYear of Graduation: 2020"
+  },
+  {
     "objectID": "Example-Analysis.html",
     "href": "Example-Analysis.html",
     "title": "Example Analysis",
@@ -54,26 +75,5 @@
     "title": "Example Analysis",
     "section": "Functions Used",
     "text": "Functions Used\nI have used the following functions from dplyr, tidyr and ggplot2 packages:\nDplyr:\n\ngroup_by()\nselect()\nSummarise()\nmutate()\nfilter()\n\nGGplot2:\n\ngeom_tile()\ngeom_boxplot()\ngeom_line()"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "I have not yet decided upon any specific research topic and exploring various new fields. Currently I am learning about Spatial Statistics with Prof. Abhi Datta, Department of Biostatistics, Bloomberg School of Public Health."
-  },
-  {
-    "objectID": "about.html#education",
-    "href": "about.html#education",
-    "title": "About",
-    "section": "Education",
-    "text": "Education\n\nJohns Hopkins Bloomberg School of Public Health\nDegree: PhD in Biostatistics\nExpected Year of graduation: 2027"
-  },
-  {
-    "objectID": "about.html#indian-statistical-institute-kolkata",
-    "href": "about.html#indian-statistical-institute-kolkata",
-    "title": "About",
-    "section": "Indian Statistical Institute, Kolkata",
-    "text": "Indian Statistical Institute, Kolkata\nDegree: Master of Statistics (M.STAT)\nYear of Graduation: 2022\nDegree: Bachelor of Statistics (B.STAT Hons.)\nYear of Graduation: 2020"
   }
 ]
