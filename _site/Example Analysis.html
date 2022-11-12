@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>quarto_website_project1 - Example Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">quarto_website_project1</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html">About</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./Example Analysis.html" aria-current="page">Example Analysis</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#r-libraries" id="toc-r-libraries" class="nav-link active" data-scroll-target="#r-libraries">R Libraries</a></li>
+  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning">Data Cleaning</a></li>
+  <li><a href="#brief-exploratory-analysis" id="toc-brief-exploratory-analysis" class="nav-link" data-scroll-target="#brief-exploratory-analysis">Brief exploratory analysis</a></li>
+  <li><a href="#introduction-of-new-variables" id="toc-introduction-of-new-variables" class="nav-link" data-scroll-target="#introduction-of-new-variables">Introduction of new variables</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Example Analysis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>Here I will present a very brief analysis of a data about global food prices in a monthly basis starting from 1990 all the way upto 2022. The data which I have used for analysis here is taken from Kaggle under the section of food data sets. The name of the data set is <a href="https://www.kaggle.com/datasets/thedevastator/food-prices-year-by-year">Global Food Prices Year by Year</a>. The data data here gives the value of food price index for every month of the years specified. The data also provides prices of various raw materials like meat, cereals, oil etc. With increasing prices of food over the years, this data has become interesting because analyzing this data might help us to find some reasons which are causing this rise of food prices.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fpi%20heatmap.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Heatmap for monthly food price index from 1990 to 2022</figcaption><p></p>
+</figure>
+</div>
+<p>The above figure used in the analysis of this data in the analysis named <a href="https://www.kaggle.com/code/fethullahceviz/food-price-change-anlaysis">Food Price Change Anlaysis</a> done by <em>Fethullah Ceviz</em> is really interesting because we can see a clear temporal pattern in the food price index over the varying years. This heatmap was the reason why i chose to analyse this data set.</p>
+<p>With Increase in prices of food, it can very well happen that this can lead to a food crisis because people might not be able to afford enough food for them to sustain. So researchers and policy makers are the people who should go through these type of data sets in order to see what is the main reason for this price hike an make interventions to keep the prices in control. So this brief analysis can be of importance to policy makers and people from agriculture and food production departments of different states.</p>
+<p>The following note provides a short dictionary for the data that we have used. One thing to mention here is that the data description in the website has not said anything about the units of each variable by which they are presented, and so for the entire analysis, I have assumed that they are on the same scale. This is a simplifying assumption, which helps in making some plots.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Data dictionary for <a href="https://www.kaggle.com/datasets/thedevastator/food-prices-year-by-year">Global Food Prices Year by Year</a></p>
+<p><code>index</code> : a variable indexing every month of each year</p>
+<p><code>date</code> : Monthly first date of every year</p>
+<p><code>food price index</code> : This is the representative of the food price for a particular month of the year</p>
+<p><code>meat</code> : price of meat (monthly)</p>
+<p><code>dairy</code> : price of dairy (monthly)</p>
+<p><code>cereals</code> : price of cereals (monthly)</p>
+<p><code>oil</code> : price of oil (monthly)</p>
+<p><code>sugar</code> : price of sugar (monthly)</p>
+</div>
+</div>
+<section id="r-libraries" class="level2">
+<h2 class="anchored" data-anchor-id="r-libraries">R Libraries</h2>
+<p>I have used the following libraries for the entire analysis:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quarto)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-cleaning" class="level2">
+<h2 class="anchored" data-anchor-id="data-cleaning">Data Cleaning</h2>
+<p>At first, we cleaned the <code>.csv</code> file provided in the website in a suitable way so that we can use it properly. The raw data was provided in a character string format. The main goal for this section was to convert it to a data frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"food_price_data.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data) <span class="co"># raw data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 1
+  `Date Food.Price.Index Meat Dairy Cereals Oils Sugar`
+  &lt;chr&gt;                                                
+1 1 01/01/1990 64.1 73.4 53.5 64.1 44.59 87.9          
+2 2 01/02/1990 64.5 76 52.2 62.2 44.5 90.7             
+3 3 01/03/1990 63.8 77.8 41.4 61.3 45.75 95.1          
+4 4 01/04/1990 65.8 80.4 48.4 62.8 44.02 94.3          
+5 5 01/05/1990 64.4 81 39.2 62 45.5 90.4               
+6 6 01/06/1990 63.7 83.1 39.2 60.7 43.8 80.3           </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data_modified <span class="ot">=</span> <span class="fu">t</span>(<span class="fu">data.frame</span>(<span class="fu">apply</span>(data, <span class="dv">1</span>, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                                   <span class="cf">function</span>(x)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                                     {<span class="fu">strsplit</span>(x, <span class="at">split =</span> <span class="st">" "</span>)}))) </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                                         <span class="co"># spliting strings</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>data_modified <span class="ot">=</span> <span class="fu">as_tibble</span>(data_modified) <span class="co"># converting to data.frame</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(data_modified) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"index"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"date"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"food price index"</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"meat"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"dairy"</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"cereals"</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"oils"</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"sugar"</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>data_modified[,<span class="sc">-</span><span class="dv">2</span>] <span class="ot">=</span> <span class="fu">apply</span>(data_modified[ , <span class="sc">-</span><span class="dv">2</span>], <span class="dv">2</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                           <span class="cf">function</span>(x) <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(x)))</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>data_modified[,<span class="dv">2</span>] <span class="ot">=</span> <span class="fu">mdy</span>(<span class="fu">sapply</span>(data_modified[,<span class="dv">2</span>], </span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                               <span class="cf">function</span>(x){<span class="fu">strsplit</span>(x,<span class="at">split =</span> <span class="st">"/"</span>)}))</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_modified) <span class="co"># modified data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+  index date       `food price index`  meat dairy cereals  oils sugar
+  &lt;dbl&gt; &lt;date&gt;                  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1     1 1990-01-01               64.1  73.4  53.5    64.1  44.6  87.9
+2     2 1990-01-02               64.5  76    52.2    62.2  44.5  90.7
+3     3 1990-01-03               63.8  77.8  41.4    61.3  45.8  95.1
+4     4 1990-01-04               65.8  80.4  48.4    62.8  44.0  94.3
+5     5 1990-01-05               64.4  81    39.2    62    45.5  90.4
+6     6 1990-01-06               63.7  83.1  39.2    60.7  43.8  80.3</code></pre>
+</div>
+</div>
+</section>
+<section id="brief-exploratory-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="brief-exploratory-analysis">Brief exploratory analysis</h2>
+<p>Our main aim here is to see which of the variables provided in the dataset seems to be associated with the monthly food price index. In order to see that we have computed pairwise correlation heatmap for all the variables including the food price index (FPI). The following heatmap shows the result:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>cormat <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">cor</span>(data_modified[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]),<span class="dv">2</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>melted_cormat <span class="ot">=</span> <span class="fu">melt</span>(cormat)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> melted_cormat, <span class="fu">aes</span>(<span class="at">x=</span>Var1, <span class="at">y=</span>Var2, <span class="at">fill=</span>value)) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(value, <span class="dv">1</span>))) <span class="sc">+</span> </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>,<span class="at">vjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Correlation heatmap for all the variables from 1990-2022"</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"There is strong correlation of some variables with FPI"</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">caption =</span> <span class="st">"Anik Burman (PhD 1st year, Biostatistics, Bloomberg School of Public Health)"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Example-Analysis_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="introduction-of-new-variables" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-of-new-variables">Introduction of new variables</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>year <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">format</span>(data_modified<span class="sc">$</span>date,<span class="st">"%Y"</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data_modified <span class="ot">=</span> data_modified <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> year, </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">decade =</span> <span class="fu">ifelse</span>(year <span class="sc">&lt;=</span> <span class="dv">2000</span>,<span class="st">"&lt;2000"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">ifelse</span>(year <span class="sc">&gt;</span><span class="dv">2000</span> <span class="sc">&amp;</span> year<span class="sc">&lt;=</span> <span class="dv">2011</span>, </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"2000-2011"</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">ifelse</span>(year <span class="sc">&gt;</span><span class="dv">2011</span> <span class="sc">&amp;</span> year<span class="sc">&lt;=</span><span class="dv">2016</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">"2011-2016"</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">"&gt;2016"</span>))))</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>data_modified<span class="sc">$</span>decade</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"    
+  [7] "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"    
+ [13] "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"    
+ [19] "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"    
+ [25] "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"    
+ [31] "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"    
+ [37] "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"    
+ [43] "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"    
+ [49] "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"    
+ [55] "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"    
+ [61] "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"    
+ [67] "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"    
+ [73] "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"    
+ [79] "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"    
+ [85] "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"    
+ [91] "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"    
+ [97] "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"    
+[103] "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"    
+[109] "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"    
+[115] "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"    
+[121] "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"    
+[127] "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"     "&lt;2000"    
+[133] "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011"
+[139] "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011"
+[145] "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011"
+[151] "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011"
+[157] "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011"
+[163] "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011"
+[169] "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011"
+[175] "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011"
+[181] "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011"
+[187] "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011"
+[193] "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011"
+[199] "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011"
+[205] "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011"
+[211] "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011"
+[217] "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011"
+[223] "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011"
+[229] "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011"
+[235] "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011"
+[241] "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011"
+[247] "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011"
+[253] "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011"
+[259] "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011" "2000-2011"
+[265] "2011-2016" "2011-2016" "2011-2016" "2011-2016" "2011-2016" "2011-2016"
+[271] "2011-2016" "2011-2016" "2011-2016" "2011-2016" "2011-2016" "2011-2016"
+[277] "2011-2016" "2011-2016" "2011-2016" "2011-2016" "2011-2016" "2011-2016"
+[283] "2011-2016" "2011-2016" "2011-2016" "2011-2016" "2011-2016" "2011-2016"
+[289] "2011-2016" "2011-2016" "2011-2016" "2011-2016" "2011-2016" "2011-2016"
+[295] "2011-2016" "2011-2016" "2011-2016" "2011-2016" "2011-2016" "2011-2016"
+[301] "2011-2016" "2011-2016" "2011-2016" "2011-2016" "2011-2016" "2011-2016"
+[307] "2011-2016" "2011-2016" "2011-2016" "2011-2016" "2011-2016" "2011-2016"
+[313] "2011-2016" "2011-2016" "2011-2016" "2011-2016" "2011-2016" "2011-2016"
+[319] "2011-2016" "2011-2016" "2011-2016" "2011-2016" "2011-2016" "2011-2016"
+[325] "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"    
+[331] "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"    
+[337] "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"    
+[343] "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"    
+[349] "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"    
+[355] "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"    
+[361] "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"    
+[367] "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"    
+[373] "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"    
+[379] "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"    
+[385] "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"     "&gt;2016"    </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>decade_name <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"&lt;2000"</span>,<span class="st">"2000-2011"</span>,<span class="st">"2011-2016"</span>,<span class="st">"&gt;2016"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>average_data <span class="ot">=</span> data_modified <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">food price index</span><span class="st">`</span>,meat,dairy,cereals,oils,sugar) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), mean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Adding missing grouping variables: `year`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(average_data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 7
+   year `food price index`  meat dairy cereals  oils sugar
+  &lt;dbl&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1  1990               63.0  81.6  42.6    58.1  45.5  77.7
+2  1991               62.1  80.6  45.5    57.9  49.0  55.5
+3  1992               63.9  77.5  54.8    61.0  53.0  56.0
+4  1993               61.9  74.1  48.6    59.0  54.0  62.0
+5  1994               66.9  75.3  47.4    61.9  71.9  75.0
+6  1995               76.6  84.6  62.7    70.8  80.0  82.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(average_data,<span class="fu">aes</span>(<span class="at">x =</span> year))<span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="st">`</span><span class="at">food price index</span><span class="st">`</span> , <span class="at">color=</span><span class="st">"fpi"</span>)) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> meat , <span class="at">color=</span><span class="st">"meat"</span>)) <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> dairy , <span class="at">color=</span><span class="st">"dairy"</span>)) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> cereals , <span class="at">color=</span><span class="st">"cereals"</span>)) <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> oils , <span class="at">color=</span><span class="st">"oil"</span>)) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> sugar , <span class="at">color=</span><span class="st">"sugar"</span>)) <span class="sc">+</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color=</span><span class="st">"name of items"</span>) <span class="sc">+</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"year"</span>) <span class="sc">+</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"price"</span>) <span class="sc">+</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(<span class="dv">2000</span>,<span class="dv">2011</span>,<span class="dv">2016</span>),<span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">colour =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Example-Analysis_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>melted_cormat <span class="ot">=</span> <span class="cn">NULL</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  cormat <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">cor</span>(data_modified[<span class="fu">which</span>(data_modified<span class="sc">$</span>decade<span class="sc">==</span>decade_name[i]),<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">9</span>,<span class="dv">10</span>)]),<span class="dv">2</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(cormat)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  melted <span class="ot">=</span> <span class="fu">melt</span>(cormat)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  melted_cormat <span class="ot">=</span> <span class="fu">rbind</span>(melted_cormat ,<span class="fu">cbind</span>(melted,<span class="fu">rep</span>(decade_name[i],<span class="fu">nrow</span>(melted))))</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(melted_cormat)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>melted_cormat[,<span class="dv">4</span>] <span class="ot">=</span> <span class="fu">as.factor</span>(melted_cormat[,<span class="dv">4</span>])</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(melted_cormat)[<span class="dv">4</span>] <span class="ot">=</span> <span class="st">"decade"</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> melted_cormat, <span class="fu">aes</span>(<span class="at">x=</span>Var1, <span class="at">y=</span>Var2, <span class="at">fill=</span>value)) <span class="sc">+</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>decade,<span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(value, <span class="dv">1</span>)), <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>,<span class="at">vjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Example-Analysis_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_modified, <span class="fu">aes</span>(<span class="st">`</span><span class="at">food price index</span><span class="st">`</span>)) <span class="sc">+</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..),<span class="at">binwidth =</span> <span class="dv">5</span>,<span class="at">colour=</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">"blue"</span>, <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>decade)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Example-Analysis_files/figure-html/unnamed-chunk-8-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_modified, <span class="fu">aes</span>(meat)) <span class="sc">+</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..),<span class="at">binwidth =</span> <span class="dv">5</span>,<span class="at">colour=</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">"blue"</span>, <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>decade)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Example-Analysis_files/figure-html/unnamed-chunk-8-4.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_modified, <span class="fu">aes</span>(dairy)) <span class="sc">+</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..),<span class="at">binwidth =</span> <span class="dv">5</span>,<span class="at">colour=</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">"blue"</span>, <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>decade)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Example-Analysis_files/figure-html/unnamed-chunk-8-5.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_modified, <span class="fu">aes</span>(oils)) <span class="sc">+</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..),<span class="at">binwidth =</span> <span class="dv">5</span>,<span class="at">colour=</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">"blue"</span>, <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>decade)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Example-Analysis_files/figure-html/unnamed-chunk-8-6.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_modified, <span class="fu">aes</span>(cereals)) <span class="sc">+</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..),<span class="at">binwidth =</span> <span class="dv">5</span>,<span class="at">colour=</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">"blue"</span>, <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>decade)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Example-Analysis_files/figure-html/unnamed-chunk-8-7.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> data_modified, <span class="fu">aes</span>(sugar)) <span class="sc">+</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..),<span class="at">binwidth =</span> <span class="dv">5</span>,<span class="at">colour=</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">"blue"</span>, <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>decade)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Example-Analysis_files/figure-html/unnamed-chunk-8-8.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>data_long <span class="ot">=</span> <span class="fu">melt</span>(<span class="at">data =</span> data_modified[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">9</span>)], <span class="at">id =</span> <span class="st">"decade"</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_long, <span class="fu">aes</span>(<span class="at">x =</span> variable, <span class="at">y =</span> value, <span class="at">color =</span> decade)) <span class="sc">+</span>  <span class="co"># ggplot function</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Example-Analysis_files/figure-html/unnamed-chunk-8-9.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
