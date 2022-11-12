@@ -1,0 +1,2 @@
+"0","data = read_csv(""food_price_data.csv"")"
+"0","head(data) # raw data"

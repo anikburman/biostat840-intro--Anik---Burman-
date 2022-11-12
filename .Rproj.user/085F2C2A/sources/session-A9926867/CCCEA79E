@@ -1,0 +1,31 @@
+{
+    "id": "CCCEA79E",
+    "path": "~/JHU academics/PhD/first year/Term II/Stat Computing II/quarto_website_project1/about.qmd",
+    "project_path": "about.qmd",
+    "type": "quarto_markdown",
+    "hash": "4016650452",
+    "contents": "",
+    "dirty": false,
+    "created": 1668219052453.0,
+    "source_on_save": true,
+    "relative_order": 4,
+    "properties": {
+        "rmdVisualMode": "false",
+        "rmdVisualWrapConfigured": "true",
+        "source_window_id": "",
+        "Source": "Source",
+        "docOutlineVisible": "1",
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "262:0",
+        "cursorPosition": "16,17",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1668222519,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1668222519400,
+    "read_only": false,
+    "read_only_alternatives": []
+}
